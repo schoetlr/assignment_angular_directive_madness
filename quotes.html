@@ -8,12 +8,28 @@
   
   <script src="app.js"></script>
   <script src="quotes.js"></script>
+
+  <style>
+  input.ng-valid {
+    border: solid 2px green;
+  }
+
+  input.ng-invalid {
+    border: solid 2px red;
+  }
+
+  input.ng-pristine {
+    border: solid 2px gray;
+  }
+
+  p.ng-invalid {
+    color: red;
+  }
+  </style>
 </head>
 
 <body ng-controller="QuotesCtrl">
-  <main-nav></main-nav>
-
-  <main-header>Quotes</main-header>
+  
 
   <quote-form></quote-form>
   <quotes-index></quotes-index>

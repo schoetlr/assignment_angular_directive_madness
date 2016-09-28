@@ -1,7 +1,9 @@
-<form>
-  Author: <input name="author" type="text" ng-model="author">
+<form novalidate name="quoteForm">
+  Author: <input name="author" type="text" ng-model="author" ng-required="true" ng-minlength="2" ng-maxlength="32">
+  <p class="ng-invalid" ng-show="quoteForm.author.$invalid || quoteForm.author.$pristine">The min length is 2 chars and the maxlength is 32 chars</p>
 
-  Quote Message: <input name="message" type="text" ng-model="message">
+  Quote Message: <input name="message" type="text" ng-model="message" ng-required="true" ng-minlength="2">
+  <p class="ng-invalid" ng-show="quoteForm.message.$invalid || quoteForm.message.$pristine">The min length is 2 chars</p>
   
-  <button type="submit" ng-click="createQuote()">Submit</button>
+  <button ng-hide="quoteForm.$invalid" type="submit" ng-click="createQuote(quoteForm.$valid, quoteForm)">Submit</button>
 </form>

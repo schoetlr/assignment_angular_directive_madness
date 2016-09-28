@@ -8,22 +8,23 @@ Quotes.controller('QuotesCtrl', ['$scope', function($scope){
   $scope.author = "";
   $scope.message = "";
 
-  $scope.createQuote = function(){
-    
-    //console.log($scope.author);
-    var quote = {};
-    quote.author = $scope.author;
-    quote.message = $scope.message;
+  $scope.createQuote = function(valid, form){
+    if(valid){
+      //console.log($scope.author);
+      var quote = {};
+      quote.author = $scope.author;
+      quote.message = $scope.message;
 
-    $scope.quotes.push(quote);
+      $scope.quotes.push(quote);
+      $scope.author = "";
+      $scope.message = "";
+      
+      form.$setPristine();
+      form.$setUntouched();
 
-    
 
-    $scope.author = "";
-    $scope.message = "";
+    }
     
-    console.log($scope.quotes);
-    foo = $scope.quotes
   };
 
   $scope.deleteQuote = function(index){
