@@ -24,6 +24,13 @@
   <p ng-show="selectedNum % 2 === 0">Number selected is even</p>
   <p ng-if="selectedNum % 2 === 1">Number selected is odd</p>
 
+  <p ng-mouseup="mouseStatus = 'UP'" ng-mousedown="mouseStatus = 'DOWN'">Mouse status is: {{mouseStatus}}</p>
+
+  <p ng-mouseover="hoverState = 'OVER'" ng-mouseleave="hoverState = 'LEAVE'">Hover state: {{hoverState}}</p>
+
+
+  <button ng-dblclick="status= 'double'">I'm {{status}} clickable</button><br>
+
 
    <copyright>Copyrighted Company</copyright>
 </body>
