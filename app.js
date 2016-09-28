@@ -1,49 +1,76 @@
 var DirectiveMadness = angular.module('DirectiveMadness', [])
 
 
+DirectiveMadness.controller("ScopesCtrl", ['$scope', '$window', function($scope, $window){
+   $scope.twoWay = "CAT IN A HAT and TWO WAY";
+   $scope.oneWay = "I AM ONE WAY";
 
+   $scope.sayHello = function(name){
 
-DirectiveMadness.controller('QuotesCtrl', ['$scope', function($scope){
-  $scope.quotes = [];
-  $scope.author = "";
-  $scope.message = "";
-
-  $scope.createQuote = function(){
-    
-    //console.log($scope.author);
-    var quote = {};
-    quote.author = $scope.author;
-    quote.message = $scope.message;
-
-    $scope.quotes.push(quote);
-
-    $scope.author = "";
-    $scope.message = "";
-
-    console.log($scope.quotes);
-  };
+    $window.alert("hello..." + name);
+   }
 }]);
 
 
-DirectiveMadness.directive("quoteForm", function(){
-
+DirectiveMadness.directive('isolated', function(){
   return {
-    scope: true,
+    templateUrl: "isolated.html",
     restrict: "E",
-    templateUrl: "quoteform.html"
+    scope: {
+      twoWay: "=",
+      oneWay: "@",
+      sayHello: "&"
+    },
 
+    link: function(scope){
+      scope.twoWay = "altered twoWay";
+      scope.oneWay = "altered oneWay";
+
+      var hello = scope.sayHello;
+          }
   }
 });
+// DirectiveMadness.controller('QuotesCtrl', ['$scope', function($scope){
+//   $scope.quotes = [];
+//   $scope.author = "";
+//   $scope.message = "";
+
+//   $scope.createQuote = function(){
+    
+//     //console.log($scope.author);
+//     var quote = {};
+//     quote.author = $scope.author;
+//     quote.message = $scope.message;
+
+//     $scope.quotes.push(quote);
+
+//     $scope.author = "";
+//     $scope.message = "";
+
+//     console.log($scope.quotes);
+//   };
+// }]);
 
 
-DirectiveMadness.directive("quotesIndex", function(){
+// DirectiveMadness.directive("quoteForm", function(){
 
-  return {
-    scope: true,
-    restrict: "E",
-    templateUrl: "quotesindex.html"
-  }
-})
+//   return {
+//     scope: true,
+//     restrict: "E",
+//     templateUrl: "quoteform.html"
+
+//   }
+// });
+
+
+// DirectiveMadness.directive("quotesIndex", function(){
+
+//   return {
+//     scope: true,
+//     restrict: "E",
+//     templateUrl: "quotesindex.html"
+//   }
+// })
 
 
 

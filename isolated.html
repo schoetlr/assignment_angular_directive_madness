@@ -1,0 +1,16 @@
+<form>
+  Two Way: <input type="text" ng-model="twoWay"><br>
+  One Way: <input type="text" ng-model="oneWay">
+</form>
+
+<br><br>
+<p>oneWay val is : {{oneWay}}</p>
+<p>twoWay val is : {{twoWay}}</p>
+
+<br>
+<br>
+
+<form name="name">
+  <input type="text" name="namefield" ng-model="namefield">
+  <button ng-click="sayHello(namefield)">Submit</button>
+</form>
