@@ -1,6 +1,54 @@
 var DirectiveMadness = angular.module('DirectiveMadness', [])
 
 
+
+
+DirectiveMadness.controller('QuotesCtrl', ['$scope', function($scope){
+  $scope.quotes = [];
+  $scope.author = "";
+  $scope.message = "";
+
+  $scope.createQuote = function(){
+    
+    //console.log($scope.author);
+    var quote = {};
+    quote.author = $scope.author;
+    quote.message = $scope.message;
+
+    $scope.quotes.push(quote);
+
+    $scope.author = "";
+    $scope.message = "";
+
+    console.log($scope.quotes);
+  };
+}]);
+
+
+DirectiveMadness.directive("quoteForm", function(){
+
+  return {
+    scope: true,
+    restrict: "E",
+    templateUrl: "quoteform.html"
+
+  }
+});
+
+
+DirectiveMadness.directive("quotesIndex", function(){
+
+  return {
+    scope: true,
+    restrict: "E",
+    templateUrl: "quotesindex.html"
+  }
+})
+
+
+
+
+
 DirectiveMadness.directive('mainNav', function(){
 
   return {

@@ -1,0 +1,12 @@
+
+<div>
+  <h2 ng-if="quotes.length === 0">There are no quotes yet</h2>
+  <div class="quotes" ng-repeat="quote in quotes">
+    <h4>{{quote.author}}</h4>
+
+    <p>{{quote.message}}</p>
+
+    <button ng-click="deleteQuote($index)">Delete</button>
+
+  </div>
+</div>
